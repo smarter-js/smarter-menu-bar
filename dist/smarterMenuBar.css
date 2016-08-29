@@ -1,0 +1,400 @@
+/*! Smarter Menu Bar v0.0.0 | MIT License | Kennedy Rose <kennedy@kennedyrose.com> (https://kennedyrose.com) */
+.nav {
+	max-height: 100vh;
+}
+
+.nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nav li {
+	z-index: 2;
+	position: relative;
+}
+
+.nav a {
+	display: inline-block;
+	white-space: nowrap;
+	height: 100%;
+	padding: 20px;
+	text-decoration: none;
+}
+
+.hor > ul {
+	height: auto;
+	overflow: visible;
+	max-height: none;
+	position: static;
+	width: auto;
+}
+
+.hor > ul a {
+	width: auto;
+}
+
+.hor > ul ul {
+	width: auto;
+	max-height: none;
+	overflow: visible;
+	display: none;
+	transition: none;
+	left: 0;
+	top: auto;
+	text-align: left;
+	position: absolute;
+	overflow: visible;
+}
+
+.hor > ul ul li {
+	width: 100%;
+}
+
+.hor > ul ul .open > ul {
+	top: 0;
+	left: 100%;
+}
+
+.hor > ul > li > a {
+	text-align: center;
+}
+
+.hor > ul li {
+	position: relative;
+	display: inline-block;
+}
+
+.hor > ul li:hover > ul {
+	display: block;
+}
+
+.hor > ul ul:before {
+	display: none;
+}
+
+.hor > ul .open > ul {
+	display: block;
+}
+
+.ver > ul {
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 100vh;
+	position: static;
+	/*
+		// Already set
+		li:hover > ul{
+			display: block;
+		}
+		*/
+}
+
+.ver > ul a {
+	width: 100%;
+}
+
+.ver > ul ul {
+	width: 100%;
+	max-height: 100vh;
+	overflow: auto;
+	transition: left .3s;
+	left: 100%;
+	top: 0;
+	text-align: left;
+	position: absolute;
+	overflow: visible;
+}
+
+.ver > ul ul li {
+	width: 100%;
+}
+
+.ver > ul > li > a {
+	text-align: left;
+}
+
+.ver > ul li {
+	position: static;
+	display: block;
+}
+
+.ver > ul ul:before {
+	content: 'Back';
+	display: block;
+	text-align: left;
+	cursor: pointer;
+	padding: 20px;
+}
+
+.ver > ul .open > ul {
+	left: 0%;
+}
+
+.acc > ul a {
+	width: 100%;
+	text-align: left;
+}
+
+.acc > ul li {
+	position: static;
+	display: list-item;
+}
+
+.acc > ul ul {
+	height: 0;
+	overflow: hidden;
+	position: static;
+	transition: none;
+}
+
+.acc > ul ul:before {
+	display: none;
+}
+
+.acc ul {
+	list-style: none;
+}
+
+.acc .open > ul {
+	height: auto;
+}
+
+@media screen and (min-width: 640px) {
+	.m-hor > ul {
+		height: auto;
+		overflow: visible;
+		max-height: none;
+		position: static;
+		width: auto;
+	}
+	.m-hor > ul a {
+		width: auto;
+	}
+	.m-hor > ul ul {
+		width: auto;
+		max-height: none;
+		overflow: visible;
+		display: none;
+		transition: none;
+		left: 0;
+		top: auto;
+		text-align: left;
+		position: absolute;
+		overflow: visible;
+	}
+	.m-hor > ul ul li {
+		width: 100%;
+	}
+	.m-hor > ul ul .open > ul {
+		top: 0;
+		left: 100%;
+	}
+	.m-hor > ul > li > a {
+		text-align: center;
+	}
+	.m-hor > ul li {
+		position: relative;
+		display: inline-block;
+	}
+	.m-hor > ul li:hover > ul {
+		display: block;
+	}
+	.m-hor > ul ul:before {
+		display: none;
+	}
+	.m-hor > ul .open > ul {
+		display: block;
+	}
+	.m-ver > ul {
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+		max-height: 100vh;
+		position: static;
+		/*
+		// Already set
+		li:hover > ul{
+			display: block;
+		}
+		*/
+	}
+	.m-ver > ul a {
+		width: 100%;
+	}
+	.m-ver > ul ul {
+		width: 100%;
+		max-height: 100vh;
+		overflow: auto;
+		transition: left .3s;
+		left: 100%;
+		top: 0;
+		text-align: left;
+		position: absolute;
+		overflow: visible;
+	}
+	.m-ver > ul ul li {
+		width: 100%;
+	}
+	.m-ver > ul > li > a {
+		text-align: left;
+	}
+	.m-ver > ul li {
+		position: static;
+		display: block;
+	}
+	.m-ver > ul ul:before {
+		content: 'Back';
+		display: block;
+		text-align: left;
+		cursor: pointer;
+		padding: 20px;
+	}
+	.m-ver > ul .open > ul {
+		left: 0%;
+	}
+	.m-acc > ul a {
+		width: 100%;
+		text-align: left;
+	}
+	.m-acc > ul li {
+		position: static;
+		display: list-item;
+	}
+	.m-acc > ul ul {
+		height: 0;
+		overflow: hidden;
+		position: static;
+		transition: none;
+	}
+	.m-acc > ul ul:before {
+		display: none;
+	}
+	.m-acc ul {
+		list-style: none;
+	}
+	.m-acc .open > ul {
+		height: auto;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.l-hor > ul {
+		height: auto;
+		overflow: visible;
+		max-height: none;
+		position: static;
+		width: auto;
+	}
+	.l-hor > ul a {
+		width: auto;
+	}
+	.l-hor > ul ul {
+		width: auto;
+		max-height: none;
+		overflow: visible;
+		display: none;
+		transition: none;
+		left: 0;
+		top: auto;
+		text-align: left;
+		position: absolute;
+		overflow: visible;
+	}
+	.l-hor > ul ul li {
+		width: 100%;
+	}
+	.l-hor > ul ul .open > ul {
+		top: 0;
+		left: 100%;
+	}
+	.l-hor > ul > li > a {
+		text-align: center;
+	}
+	.l-hor > ul li {
+		position: relative;
+		display: inline-block;
+	}
+	.l-hor > ul li:hover > ul {
+		display: block;
+	}
+	.l-hor > ul ul:before {
+		display: none;
+	}
+	.l-hor > ul .open > ul {
+		display: block;
+	}
+	.l-ver > ul {
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+		max-height: 100vh;
+		position: static;
+		/*
+		// Already set
+		li:hover > ul{
+			display: block;
+		}
+		*/
+	}
+	.l-ver > ul a {
+		width: 100%;
+	}
+	.l-ver > ul ul {
+		width: 100%;
+		max-height: 100vh;
+		overflow: auto;
+		transition: left .3s;
+		left: 100%;
+		top: 0;
+		text-align: left;
+		position: absolute;
+		overflow: visible;
+	}
+	.l-ver > ul ul li {
+		width: 100%;
+	}
+	.l-ver > ul > li > a {
+		text-align: left;
+	}
+	.l-ver > ul li {
+		position: static;
+		display: block;
+	}
+	.l-ver > ul ul:before {
+		content: 'Back';
+		display: block;
+		text-align: left;
+		cursor: pointer;
+		padding: 20px;
+	}
+	.l-ver > ul .open > ul {
+		left: 0%;
+	}
+	.l-acc > ul a {
+		width: 100%;
+		text-align: left;
+	}
+	.l-acc > ul li {
+		position: static;
+		display: list-item;
+	}
+	.l-acc > ul ul {
+		height: 0;
+		overflow: hidden;
+		position: static;
+		transition: none;
+	}
+	.l-acc > ul ul:before {
+		display: none;
+	}
+	.l-acc ul {
+		list-style: none;
+	}
+	.l-acc .open > ul {
+		height: auto;
+	}
+}
+
+/*# sourceMappingURL=smarterMenuBar.css.map */

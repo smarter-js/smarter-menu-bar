@@ -1,6 +1,14 @@
-'use strict';
+'use strict'
 
 !function () {
-	console.log('This is a test.');
-}();
-//# sourceMappingURL=script.js.map
+	'use strict'
+
+	SmarterMenuBar.findMenuBars()
+
+	// Initiate Fastclick
+	if ('addEventListener' in document) {
+		document.addEventListener('DOMContentLoaded', function () {
+			FastClick.attach(document.body)
+		}, false)
+	}
+}()

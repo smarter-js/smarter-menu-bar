@@ -1,7 +1,7 @@
 {
   "name": "smarter-menu-bar",
   "title": "Smarter Menu Bar",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/smarterMenuBar.js",
   "scripts": {

@@ -4,15 +4,35 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="../dist/smarter-menu-bar.css">
+		<link rel="stylesheet" type="text/css" href="normalize.css">
+		<link rel="stylesheet" type="text/css" href="../dist/smarterMenuBar.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<title>Chisel Test
+		<title>Menu Bar Test
 		</title>
 		<meta name="description" content="">
 	</head>
 	<body>
-		<div>Test.</div>
-		<script src="../dist/smarter-menu-bar.js"></script>
+		<div class="nav acc m-ver l-hor">
+			<ul>
+				<li><a href="#">Link A</a>
+					<ul class="drop">
+						<li><a href="#">Submenu Link A</a></li>
+						<li><a href="#">Submenu Link B</a></li>
+						<li><a href="#">Submenu Link C</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Link B</a>
+					<ul class="drop">
+						<li><a href="#">Another Submenu Link A</a></li>
+						<li><a href="#">Another Submenu Link B</a></li>
+						<li><a href="#">Another Submenu Link C</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Link C</a></li>
+			</ul>
+		</div>
+		<script src="fastclick.js"></script>
+		<script src="../dist/smarterMenuBar.js"></script>
 		<script src="script.js"></script>
 	</body>
 </html>

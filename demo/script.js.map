@@ -1,1 +1,0 @@
-{"version":3,"names":[],"mappings":"","sources":["script.js"],"sourcesContent":["'use strict';\n\n!function () {\n\tconsole.log('This is a test.');\n}();"],"file":"script.js","sourceRoot":"/source/"}

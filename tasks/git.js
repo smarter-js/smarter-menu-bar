@@ -32,7 +32,7 @@ module.exports = function(gulp, config, plugins){
 			}))
 	})
 
-	gulp.task('push', function(){
+	gulp.task('gitpush', function(){
 		// Increment version and push
 		return gulp.src('./package.json')
 			.pipe(bump())
@@ -40,13 +40,21 @@ module.exports = function(gulp, config, plugins){
 			.pipe(shell('git add -A', {
 				verbose: true,
 			}))
-			.pipe(shell('git commit -m "Version bump"', {
+			.pipe(shell('git commit -m "Version build/bump"', {
 				verbose: true,
 			}))
 			.pipe(shell('git push -u origin master', {
 				verbose: true,
 			}))
 	})
+	gulp.task('push', function(cb){
+		runSequence(
+			'build',
+			['gitpush'],
+			cb
+		)
+	})
+
 	gulp.task('gitrelease', function(){
 		// Increment version and push
 		return gulp.src('./package.json')

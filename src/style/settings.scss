@@ -1,6 +1,9 @@
 // Settings
 $medium: 'm' !default;
+$large: 'l' !default;
 $divider: '-' !default;
+$medium-breakpoint: 640px !default;
+$large-breakpoint: 1280px !default;
 
 // Warning: These default classes are referenced in navigation.js as well
 $navigation: 'nav' !default;
@@ -12,3 +15,11 @@ $navigation-open: 'open' !default;
 $navigation-animation: 'expand' !default;
 $navigation-link-padding: 20px !default;
 $navigation-list-padding: 20px !default;
+
+// Media queries
+$medium-up: unquote('screen and (min-width: #{$medium-breakpoint})') !default;
+$large-only: unquote('screen and (min-width: #{$large-breakpoint})') !default;
+$large-up: $large-only !default;
+
+
+

@@ -3,80 +3,25 @@
 module.exports = function(gulp, config, plugins){
 
 
-
-
-	// Compress for development to dist
+	// Clears, then builds dist folder
 	gulp.task('dist', function(cb){
-		// Clear cache
-		cached.caches = {}
-
-		// Build everything
 		runSequence(
 			'undist',
-			['html', 'style', 'script'],
-			//'manifest',
+			['style', 'script'],
 			cb
 		)
 	})
 
 
-	// Compress for production to dist
-	gulp.task('stage', function(cb){
-		runSequence(
-			'undist',
-			['htmlprod', 'styleprod', 'scriptprod'],
-			//'manifest',
-			cb
-		)
-	})
+	// Clears, then builds dist and demo folder
+	gulp.task('build', ['dist', 'demo'])
 
 
-	// Compress everything but HTML for production to dist
-	gulp.task('stagesome', function(cb){
-		runSequence(
-			'undist',
-			['html', 'styleprod', 'scriptprod'],
-			//'manifest',
-			cb
-		)
-	})
-
-
-
-	gulp.task('build', function(cb){
-		runSequence(
-			['stage', 'unbuild'],
-			'copybuild',
-			cb
-		)
-	})
-
-
-
-	// Copy to build
-	gulp.task('copybuild', function(){
-		return gulp.src(config.dist + '/**/*')
-			.pipe(gulp.dest(config.build))
-	})
-
-
-
-	// Cleaners
+	// Clear dist folder
 	gulp.task('undist', function(){
 		return gulp.src(config.dist)
 			.pipe(vinylPaths(del))
 	})
-	gulp.task('unbuild', function(){
-		return gulp.src(config.build)
-			.pipe(vinylPaths(del))
-	})
-
-
-
-
-
-
-
 
 
 

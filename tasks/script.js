@@ -13,41 +13,52 @@ module.exports = function(gulp, config, plugins){
 	}
 
 
+	// Transpile demo JavaScript
+	gulp.task('demo:script', function(cb){
 
-	gulp.task('script', function(){
-
-		let full = browserify(config.src + '/' + config.script + '/' + config.package.name + '.js', {
-				debug: true
-			})
-			.transform(babelify, {
-				//sourceMapsAbsolute: true,
+		return gulp.src(config.src + '/' + config.demo + '/**/*.js')
+			.pipe(plumber(onError))
+			.pipe(babel({
 				presets: ['es2015', 'react'],
 				sourceMaps: true,
-				//auxiliaryCommentBefore: config.info + '\n'
-			})
-			//.transform(debowerify)
-			.bundle()
-			.pipe(source(config.package.name + '.js'))
-			.pipe(buffer())
-			// Standard Gulp pipe here
+			}))
+			.pipe(semi.remove({
+				leading: true
+			}))
+			.pipe(gulp.dest(config.demo))
+			.pipe(notify({
+				message: 'Demo JavaScript processed',
+				onLast: true
+			}))
+
+	})
+
+	// Transpile module JavaScript
+	gulp.task('script', function(){
+
+		let full = gulp.src(config.src + '/' + config.script + '/' + config.fileName + '.js')
 			.pipe(plumber(onError))
-			.pipe(sourcemaps.init({loadMaps: true}))
+			//.pipe(sourcemaps.init({loadMaps: true}))
+			.pipe(babel({
+				presets: ['es2015']
+			}))
+			.pipe(umd())
 			.pipe(wrapJs(config.info + '\n;%= body %'))
-			.pipe(sourcemaps.write('./'))
+			.pipe(jsbeautifier({
+				indent_char: '\t',
+				indent_size: 1
+			}))
+			.pipe(semi.remove({
+				leading: true
+			}))
+			//.pipe(sourcemaps.write('./'))
 
-
-		let min = browserify(config.src + '/' + config.script + '/' + config.package.name + '.js')
-			.transform(babelify, {
-				//sourceMapsAbsolute: true,
-				presets: ['es2015', 'react'],
-				//auxiliaryCommentBefore: config.info + '\n'
-			})
-			//.transform(debowerify)
-			.bundle()
-			.pipe(source(config.package.name + '.js'))
-			.pipe(buffer())
-			// Standard Gulp pipe here
+		let min = gulp.src(config.src + '/' + config.script + '/' + config.fileName + '.js')
 			.pipe(plumber(onError))
+			.pipe(umd())
+			.pipe(babel({
+				presets: ['es2015']
+			}))
 			.pipe(wrapJs(config.info + '\n;%= body %'))
 			.pipe(uglify({
 				preserveComments:'some'

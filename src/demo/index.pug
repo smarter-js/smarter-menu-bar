@@ -1,7 +1,7 @@
 extends _template.pug
 
 block title
-	| Chisel Test
+	| Menu Bar Test
 
 block vars
 	- var bodyClass = ''
@@ -10,6 +10,27 @@ block vars
 block content
 
 
-	div Test.
+	.nav.acc.m-ver.l-hor
+		ul
+			li
+				a(href='#') Link A
+				ul.drop
+					li
+						a(href='#') Submenu Link A
+					li
+						a(href='#') Submenu Link B
+					li
+						a(href='#') Submenu Link C
+			li
+				a(href='#') Link B
+				ul.drop
+					li
+						a(href='#') Another Submenu Link A
+					li
+						a(href='#') Another Submenu Link B
+					li
+						a(href='#') Another Submenu Link C
+			li
+				a(href='#') Link C
 
 							

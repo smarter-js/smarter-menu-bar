@@ -1,3 +1,15 @@
-!function(){
-	console.log('This is a test.')
+!function(){'use strict'
+
+
+
+	SmarterMenuBar.findMenuBars()
+	
+
+
+	// Initiate Fastclick
+	if ('addEventListener' in document) {
+		document.addEventListener('DOMContentLoaded', function() {
+			FastClick.attach(document.body)
+		}, false)
+	}
 }()

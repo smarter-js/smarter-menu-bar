@@ -1,3 +1,27 @@
-body{
-	
+.nav{
+	ul{
+		background-color: #fff;
+	}
+	a{
+		color: #fff;
+	}
+	li{
+		background-color: #000;
+		margin: 2px 0;
+		transition: color .3s, background-color .3s;
+		&:hover{
+			color: #333;
+			background-color: #ccc;
+		}
+		li{
+			background-color: #333;
+		}
+	}
+	.drop{
+		&:before{
+			margin-bottom: 3px;
+			background-color: #000;
+			color: #fff;
+		}
+	}
 }

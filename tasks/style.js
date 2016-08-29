@@ -13,9 +13,34 @@ module.exports = function(gulp, config, plugins){
 	}
 
 
+	// Transpile demo Sass
+	gulp.task('demo:style', function(){
+
+		return gulp.src(config.src + '/' + config.demo + '/**/*.{scss,css}')
+			.pipe(plumber(onError))
+			.pipe(sourcemaps.init())
+			.pipe(sass({
+				indentType: 'tab',
+				outputStyle: 'expanded',
+				indentWidth: 1
+			}))
+			.pipe(autoprefixer({
+				browsers: config.browsers
+			}))
+			.pipe(sourcemaps.write('/'))
+			.pipe(gulp.dest(config.demo))
+			.pipe(plugins.browserSync.stream())
+			.pipe(notify({
+				message: 'Demo Sass processed',
+				onLast: true
+			}))
+
+	})
+
+	// Transpile module Sass
 	gulp.task('style:build', function(){
 
-		let full = gulp.src(config.src + '/' + config.style + '/' + config.package.name + '.scss')
+		let full = gulp.src(config.src + '/' + config.style + '/' + config.fileName + '.scss')
 			.pipe(plumber(onError))
 			.pipe(sourcemaps.init())
 			.pipe(sass({
@@ -29,7 +54,7 @@ module.exports = function(gulp, config, plugins){
 			.pipe(sourcemaps.write('/'))
 			.pipe(gulp.dest(config.dist))
 
-		let min = gulp.src(config.src + '/' + config.style + '/' + config.package.name + '.scss')
+		let min = gulp.src(config.src + '/' + config.style + '/' + config.fileName + '.scss')
 			.pipe(plumber(onError))
 			.pipe(sass({
 				outputStyle: 'compressed'

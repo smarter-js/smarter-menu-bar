@@ -3,7 +3,7 @@
 module.exports = function(gulp, config, plugins){
 
 
-	
+	// Displays a list of all plugins	
 	gulp.task('plugins', function(cb){
 		console.log('\nPLUGINS:')
 		let keys = Object.keys(plugins).sort()
@@ -14,5 +14,7 @@ module.exports = function(gulp, config, plugins){
 		console.log('')
 		cb()
 	})
+
+	gulp.task('modules', ['plugins'])
 
 }

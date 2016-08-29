@@ -1,5 +1,10 @@
 // Load options
-let config = require('./config.js')
+let _config = require('./config.js'),
+	config = {},
+	i
+for(i in _config){
+	config[i] = _config[i]
+}
 
 // Load plugins
 const gulp = require('gulp')
@@ -10,6 +15,7 @@ const gulp = require('gulp')
 
 plugins.fs = require('fs')
 plugins.opn = require('opn')
+plugins.camelCase = require('camelcase')
 plugins.babelify = require('babelify')
 plugins.childProcess = require('child_process')
 plugins.gulpif = plugins.if
@@ -23,13 +29,16 @@ plugins.vinylPaths = require('vinyl-paths')
 plugins.source = require('vinyl-source-stream')
 plugins.buffer = require('vinyl-buffer')
 plugins.notifier = require('node-notify')
-for(let i in plugins){
+for(i in plugins){
 	global[i] = plugins[i]
 }
 
+// Get camelcase version of name
+config.fileName = camelCase(config.package.name)
+
 // Load tasks
 let files = glob.sync('./tasks/*.js')
-for(let i = 0; i < files.length; i++){
+for(i = 0; i < files.length; i++){
 	require(files[i])(gulp, config, plugins)
 }
 
